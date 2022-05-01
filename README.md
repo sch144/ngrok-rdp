@@ -18,6 +18,7 @@
 > Go to Action > Run Workflow
 > Refresh the page and go to > build
 > Press down-facing-arrow button, you'll get IP, username & password
+> Search 'Remote Desktop Connection" from start menu and put the IP, username (later password) 
 ```
 ## Screenshots
 <img src="https://i.imgur.com/vgD2owk.png" alt="ss" width="90%"/>
