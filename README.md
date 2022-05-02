@@ -8,18 +8,21 @@
 * This RDP stays active for up to 6 hours.<br>
 
 ## How to use it?
-```
-> Press the fork button
-> Get NGROK_AUTH_TOKEN from their website, https://ngrok.com
-> In the forked repo: Go to Settings > Secrets > Action > New Repository Secret
-  > In the name section: Enter NGROK_AUTH_TOKEN
-  > In the value section: Visit https://dashboard.ngrok.com/auth/your-authtoken for token
-  > Press Add Secret
-> Go to Action > Run Workflow
-> Refresh the page and go to > build
-> Press down-facing-arrow button, you'll get IP, username & password
-> Search 'Remote Desktop Connection" from start menu and put the IP, username (later password) 
-```
+
+* Press the **fork** button  
+* Login or signup to ngrok: https://ngrok.com
+* Now visit here for token: https://dashboard.ngrok.com/auth/your-authtoken
+> You'll get token from here. It'll be needed to the next step.
+* In your forked repo: **Go to Settings > Secrets > Action > New Repository Secret**
+* In the name section, enter this text: **NGROK_AUTH_TOKEN**
+* In the value section, enter the **ngrok token**
+* Then press **Add Secret**
+* Now go to **Action > AWS > Run Workflow**
+* Refresh the page and go to **build** option
+* Go to **AWS > build** you'll get IP, Username & Password from **Connect to RDP** section.
+* Search **Remote Desktop Connection** from Windows Start Menu and open.
+* Put the IP, username and press start. Later on, put the password for auth.
+
 ## Screenshots
 <img src="https://i.imgur.com/vgD2owk.png" alt="ss" width="90%"/>
 <img src="https://i.imgur.com/8XBLUqf.png" alt="ss" width="90%"/>
