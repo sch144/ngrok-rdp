@@ -11,17 +11,12 @@ jobs:
 
     - name: Download ngrok
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/adtitas/ngrok-rdp/main/resources/ngrok.zip -OutFile ngrok.zip
-        Invoke-WebRequest https://raw.githubusercontent.com/adtitas/ngrok-rdp/main/resources/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/adtitas/ngrok-rdp/main/resources/winrar.exe -OutFile winrar.exe
+        Invoke-WebRequest https://localtonet.com/download/win-64.zip -OutFile localtonet.zip
+        Invoke-WebRequest https://raw.githubusercontent.com/sch144/ngrok-rdp/main/resources/start.bat -OutFile start.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/sch144/ngrok-rdp/main/resources/winrar.exe -OutFile winrar.exe
 
     - name: Extract ngrok Files
-      run: Expand-Archive ngrok.zip
-
-    - name: Connecting ngrok Account
-      run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
-      env:
-        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+      run: Expand-Archive localtonet.zip
 
     - name: Enable RDP Access
       run: |
@@ -31,7 +26,7 @@ jobs:
         copy winrar.exe C:\Users\Public\Desktop\winrar.exe
         
     - name: Create Tunnel
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 3389"'
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\localtonet\localtonet.exe udptcp 3389"'
 
     - name: Connect to RDP  [CPU 2 Core - 7GB Ram - 256 SSD]
       run: cmd /c start.bat
